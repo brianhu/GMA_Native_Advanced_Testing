@@ -196,8 +196,19 @@ GADUnifiedNativeAdDelegate>
     // In order for the SDK to process touch events properly, user interaction
     // should be disabled.
     nativeAdView.callToActionView.userInteractionEnabled = NO;
+    UITapGestureRecognizer *singleFingerTap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self
+                                            action:@selector(togglePlaybackStatus:)];
+    NSLog(@"nativeAdView.mediaView.subviews.count: %d", nativeAdView.mediaView.subviews.count); // will get 1
+    NSLog(@"subview: %@", nativeAdView.subviews[0]); // it's an UIImageView
+    [self.nativeAdView.mediaView addGestureRecognizer:singleFingerTap]; // doesn't work
+    [self.nativeAdView.mediaView.subviews[0] addGestureRecognizer:singleFingerTap]; // doesn't work
 }
 
+
+- (void)togglePlaybackStatus:(UITapGestureRecognizer *)recognizer {
+    NSLog(@"media view tapped");
+}
 #pragma mark GADVideoControllerDelegate implementation
 
 - (void)videoControllerDidEndVideoPlayback:(GADVideoController *)videoController {
