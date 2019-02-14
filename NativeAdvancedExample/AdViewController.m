@@ -196,6 +196,16 @@ GADUnifiedNativeAdDelegate>
     // In order for the SDK to process touch events properly, user interaction
     // should be disabled.
     nativeAdView.callToActionView.userInteractionEnabled = NO;
+    
+    UIView *view = [[UIView alloc] init];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:nativeAd.callToAction forState:UIControlStateNormal];
+    [button sizeToFit];
+    view.backgroundColor = UIColor.redColor;
+    view.frame = CGRectMake(0, 0, button.frame.size.width, button.frame.size.height);
+    [view addSubview:button];
+    self.nativeAdView.callToActionView = button;
+    [self.nativeAdView.mediaView addSubview:view];
 }
 
 #pragma mark GADVideoControllerDelegate implementation
