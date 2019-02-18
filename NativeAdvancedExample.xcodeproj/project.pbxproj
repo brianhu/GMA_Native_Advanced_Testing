@@ -14,6 +14,7 @@
 		CF9335C81B26706400DEF1B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9335C71B26706400DEF1B4 /* Images.xcassets */; };
 		CF9335CB1B26706400DEF1B4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9335C91B26706400DEF1B4 /* LaunchScreen.xib */; };
 		CF9335EC1B26715A00DEF1B4 /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9335E61B26715A00DEF1B4 /* UnifiedNativeAdView.xib */; };
+		D8045F0A221A8D8A00F9066A /* TikTokAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8045F09221A8D8A00F9066A /* TikTokAdView.xib */; };
 		D81028B321DCE895008907F9 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81028B221DCE895008907F9 /* GoogleMobileAds.framework */; };
 		D899809D21EDBC0D0045230D /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D899809C21EDBC0D0045230D /* PageContentViewController.m */; };
 		D8FFB8A321EDBBAA0046073D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFB8A221EDBBAA0046073D /* RootViewController.m */; };
@@ -31,6 +32,7 @@
 		CF9335C71B26706400DEF1B4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF9335CA1B26706400DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CF9335E71B26715A00DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UnifiedNativeAdView.xib; sourceTree = "<group>"; };
+		D8045F09221A8D8A00F9066A /* TikTokAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TikTokAdView.xib; sourceTree = "<group>"; };
 		D81028B221DCE895008907F9 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		D899809B21EDBC0D0045230D /* PageContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		D899809C21EDBC0D0045230D /* PageContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				D8FFB8A221EDBBAA0046073D /* RootViewController.m */,
 				D899809B21EDBC0D0045230D /* PageContentViewController.h */,
 				D899809C21EDBC0D0045230D /* PageContentViewController.m */,
+				D8045F09221A8D8A00F9066A /* TikTokAdView.xib */,
 			);
 			path = NativeAdvancedExample;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				CF9335CB1B26706400DEF1B4 /* LaunchScreen.xib in Resources */,
 				CF9335EC1B26715A00DEF1B4 /* UnifiedNativeAdView.xib in Resources */,
 				CF9335C81B26706400DEF1B4 /* Images.xcassets in Resources */,
+				D8045F0A221A8D8A00F9066A /* TikTokAdView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +315,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = NativeAdvancedExample;
@@ -327,7 +331,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = NativeAdvancedExample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = NativeAdvancedExample;

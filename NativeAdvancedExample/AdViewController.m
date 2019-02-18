@@ -17,7 +17,8 @@
 
 // Native Advanced ad unit ID for testing.
 //static NSString *const TestAdUnit = @"ca-app-pub-6536861780333891/2010935537";
-static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3269769710";
+//static NSString *const TestAdUnit = @"ca-app-pub-3940256099942544/3269769710";
+static NSString *const TestAdUnit = @"ca-app-pub-8370525519628947/9701723297";
 
 @interface AdViewController () <GADUnifiedNativeAdLoaderDelegate,
 GADVideoControllerDelegate,
@@ -42,7 +43,7 @@ GADUnifiedNativeAdDelegate>
     self.versionLabel.text = [GADRequest sdkVersion];
     
     NSArray *nibObjects =
-    [[NSBundle mainBundle] loadNibNamed:@"UnifiedNativeAdView" owner:nil options:nil];
+    [[NSBundle mainBundle] loadNibNamed:@"TikTokAdView" owner:nil options:nil];
     [self setAdView:[nibObjects firstObject]];
     [self refreshAd:nil];
 }
@@ -141,6 +142,7 @@ GADUnifiedNativeAdDelegate>
     // Populate the native ad view with the native ad assets.
     // The headline is guaranteed to be present in every native ad.
     ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
+    [nativeAdView.headlineView sizeToFit];
     
     // Some native ads will include a video asset, while others do not. Apps can
     // use the GADVideoController's hasVideoContent property to determine if one
@@ -173,6 +175,7 @@ GADUnifiedNativeAdDelegate>
     // showing or hiding them.
     ((UILabel *)nativeAdView.bodyView).text = nativeAd.body;
     nativeAdView.bodyView.hidden = nativeAd.body ? NO : YES;
+    [nativeAdView.bodyView sizeToFit];
     
     [((UIButton *)nativeAdView.callToActionView) setTitle:nativeAd.callToAction
                                                  forState:UIControlStateNormal];
