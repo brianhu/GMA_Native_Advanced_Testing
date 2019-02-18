@@ -134,6 +134,7 @@ GADUnifiedNativeAdDelegate>
     self.heightConstraint.active = NO;
     
     nativeAdView.nativeAd = nativeAd;
+    nativeAdView.mediaView.backgroundColor = [UIColor blackColor];
     
     // Set ourselves as the ad delegate to be notified of native ad events.
     nativeAd.delegate = self;
