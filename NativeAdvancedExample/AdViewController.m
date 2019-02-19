@@ -63,13 +63,16 @@ GADUnifiedNativeAdDelegate>
     // Loads an ad for unified native ad.
     self.refreshButton.enabled = NO;
     
-    GADNativeAdMediaAdLoaderOptions *videoOptions = [[GADNativeAdMediaAdLoaderOptions alloc] init];
-    videoOptions.mediaAspectRatio = GADMediaAspectRatioPortrait;
+    GADNativeAdMediaAdLoaderOptions *mediaOptions = [[GADNativeAdMediaAdLoaderOptions alloc] init];
+    mediaOptions.mediaAspectRatio = GADMediaAspectRatioPortrait;
+    
+    GADVideoOptions *videoOptions = [[GADVideoOptions alloc] init];
+    videoOptions.customControlsRequested = @YES;
     
     self.adLoader = [[GADAdLoader alloc] initWithAdUnitID:TestAdUnit
                                        rootViewController:self
                                                   adTypes:@[ kGADAdLoaderAdTypeUnifiedNative ]
-                                                  options:@[ videoOptions ]];
+                                                  options:@[ mediaOptions, videoOptions ]];
     self.adLoader.delegate = self;
     GADRequest *request = [GADRequest request];
     GADExtras *extras = [[GADExtras alloc] init];
