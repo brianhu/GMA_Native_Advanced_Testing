@@ -34,6 +34,7 @@ GADUnifiedNativeAdDelegate>
 /// The height constraint applied to the ad view, where necessary.
 @property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
 @property(nonatomic, strong) GADVideoController *videoController;
+@property(nonatomic) NSUInteger endCounter;
 @end
 
 @implementation AdViewController
@@ -46,6 +47,8 @@ GADUnifiedNativeAdDelegate>
     [[NSBundle mainBundle] loadNibNamed:@"TikTokAdView" owner:nil options:nil];
     [self setAdView:[nibObjects firstObject]];
     [self refreshAd:nil];
+    
+    _endCounter = 0;
 }
 
 - (IBAction)play:(id)sender {
@@ -208,7 +211,11 @@ GADUnifiedNativeAdDelegate>
 #pragma mark GADVideoControllerDelegate implementation
 
 - (void)videoControllerDidEndVideoPlayback:(GADVideoController *)videoController {
-    
+    if (++_endCounter < 2) {
+        [self.videoController play];
+    } else {
+        
+    }
 }
 
 - (void)videoControllerDidPlayVideo:(GADVideoController *)videoController {
