@@ -14,6 +14,7 @@
 
 #import "AdViewController.h"
 #import <GoogleMobileAds/GADNativeAdMediaAdLoaderOptions_Preview.h>
+#import "VideoEndOverlayViewController.h"
 
 // Native Advanced ad unit ID for testing.
 //static NSString *const TestAdUnit = @"ca-app-pub-6536861780333891/2010935537";
@@ -22,7 +23,8 @@ static NSString *const TestAdUnit = @"ca-app-pub-8370525519628947/9701723297";
 
 @interface AdViewController () <GADUnifiedNativeAdLoaderDelegate,
 GADVideoControllerDelegate,
-GADUnifiedNativeAdDelegate>
+GADUnifiedNativeAdDelegate,
+VideoEndOverlayViewControllerDelegate>
 
 /// You must keep a strong reference to the GADAdLoader during the ad loading
 /// process.
@@ -35,6 +37,8 @@ GADUnifiedNativeAdDelegate>
 @property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
 @property(nonatomic, strong) GADVideoController *videoController;
 @property(nonatomic) NSUInteger endCounter;
+@property(nonatomic, strong) VideoEndOverlayViewController *videoEndOverlayVC;
+@property(nonatomic, strong) UIView *originCTAView;
 @end
 
 @implementation AdViewController
@@ -49,6 +53,9 @@ GADUnifiedNativeAdDelegate>
     [self refreshAd:nil];
     
     _endCounter = 0;
+    
+    self.videoEndOverlayVC = [[VideoEndOverlayViewController alloc] initWithNibName:@"VideoEndOverlayView" bundle:nil];
+    self.videoEndOverlayVC.delegate = self;
 }
 
 - (IBAction)play:(id)sender {
@@ -214,12 +221,28 @@ GADUnifiedNativeAdDelegate>
     if (++_endCounter < 2) {
         [self.videoController play];
     } else {
-        
+        self.videoEndOverlayVC.view.frame = self.nativeAdView.bounds;
+        [self.nativeAdView addSubview:self.videoEndOverlayVC.view];
+        self.originCTAView = self.nativeAdView.callToActionView;
+        self.nativeAdView.callToActionView = self.videoEndOverlayVC.callToActionButton;
+        [self.videoEndOverlayVC.callToActionButton setTitle:self.nativeAdView.nativeAd.callToAction forState:UIControlStateNormal];
+        [self.videoEndOverlayVC.callToActionButton sizeToFit];
     }
 }
 
 - (void)videoControllerDidPlayVideo:(GADVideoController *)videoController {
     
+}
+
+#pragma VideoEndOverlayViewControllerDelegate
+- (void)didClickPlayButton {
+    [self.videoController play];
+    [self.videoEndOverlayVC.view removeFromSuperview];
+    self.nativeAdView.callToActionView = self.originCTAView;
+}
+
+- (void)didClickCTAButton {
+
 }
 
 #pragma mark GADUnifiedNativeAdDelegate

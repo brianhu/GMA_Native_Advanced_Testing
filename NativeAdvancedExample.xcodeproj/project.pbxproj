@@ -16,6 +16,8 @@
 		CF9335EC1B26715A00DEF1B4 /* UnifiedNativeAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF9335E61B26715A00DEF1B4 /* UnifiedNativeAdView.xib */; };
 		D8045F0A221A8D8A00F9066A /* TikTokAdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8045F09221A8D8A00F9066A /* TikTokAdView.xib */; };
 		D81028B321DCE895008907F9 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81028B221DCE895008907F9 /* GoogleMobileAds.framework */; };
+		D810DCB1221BD1F200DCA76F /* VideoEndOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D810DCB0221BD1F200DCA76F /* VideoEndOverlayView.xib */; };
+		D810DCB4221BD36900DCA76F /* VideoEndOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D810DCB3221BD36900DCA76F /* VideoEndOverlayViewController.m */; };
 		D899809D21EDBC0D0045230D /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D899809C21EDBC0D0045230D /* PageContentViewController.m */; };
 		D8FFB8A321EDBBAA0046073D /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FFB8A221EDBBAA0046073D /* RootViewController.m */; };
 /* End PBXBuildFile section */
@@ -34,6 +36,9 @@
 		CF9335E71B26715A00DEF1B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/UnifiedNativeAdView.xib; sourceTree = "<group>"; };
 		D8045F09221A8D8A00F9066A /* TikTokAdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TikTokAdView.xib; sourceTree = "<group>"; };
 		D81028B221DCE895008907F9 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		D810DCB0221BD1F200DCA76F /* VideoEndOverlayView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoEndOverlayView.xib; sourceTree = "<group>"; };
+		D810DCB2221BD36900DCA76F /* VideoEndOverlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEndOverlayViewController.h; sourceTree = "<group>"; };
+		D810DCB3221BD36900DCA76F /* VideoEndOverlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEndOverlayViewController.m; sourceTree = "<group>"; };
 		D899809B21EDBC0D0045230D /* PageContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		D899809C21EDBC0D0045230D /* PageContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		D8FFB8A121EDBBAA0046073D /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -86,6 +91,9 @@
 				D899809B21EDBC0D0045230D /* PageContentViewController.h */,
 				D899809C21EDBC0D0045230D /* PageContentViewController.m */,
 				D8045F09221A8D8A00F9066A /* TikTokAdView.xib */,
+				D810DCB0221BD1F200DCA76F /* VideoEndOverlayView.xib */,
+				D810DCB2221BD36900DCA76F /* VideoEndOverlayViewController.h */,
+				D810DCB3221BD36900DCA76F /* VideoEndOverlayViewController.m */,
 			);
 			path = NativeAdvancedExample;
 			sourceTree = "<group>";
@@ -165,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9335C61B26706400DEF1B4 /* Main.storyboard in Resources */,
+				D810DCB1221BD1F200DCA76F /* VideoEndOverlayView.xib in Resources */,
 				CF9335CB1B26706400DEF1B4 /* LaunchScreen.xib in Resources */,
 				CF9335EC1B26715A00DEF1B4 /* UnifiedNativeAdView.xib in Resources */,
 				CF9335C81B26706400DEF1B4 /* Images.xcassets in Resources */,
@@ -180,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF9335C31B26706400DEF1B4 /* AdViewController.m in Sources */,
+				D810DCB4221BD36900DCA76F /* VideoEndOverlayViewController.m in Sources */,
 				CF9335C01B26706400DEF1B4 /* AppDelegate.m in Sources */,
 				D899809D21EDBC0D0045230D /* PageContentViewController.m in Sources */,
 				D8FFB8A321EDBBAA0046073D /* RootViewController.m in Sources */,
