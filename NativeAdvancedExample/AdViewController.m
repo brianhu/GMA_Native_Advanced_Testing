@@ -35,7 +35,6 @@ VideoEndOverlayViewControllerDelegate>
 
 /// The height constraint applied to the ad view, where necessary.
 @property(nonatomic, strong) NSLayoutConstraint *heightConstraint;
-@property(nonatomic, strong) GADVideoController *videoController;
 @property(nonatomic) NSUInteger endCounter;
 @property(nonatomic, strong) VideoEndOverlayViewController *videoEndOverlayVC;
 @property(nonatomic, strong) UIView *originCTAView;
@@ -56,16 +55,6 @@ VideoEndOverlayViewControllerDelegate>
     
     self.videoEndOverlayVC = [[VideoEndOverlayViewController alloc] initWithNibName:@"VideoEndOverlayView" bundle:nil];
     self.videoEndOverlayVC.delegate = self;
-}
-
-- (IBAction)play:(id)sender {
-    [self.videoController play];
-    NSLog(@"play");
-}
-
-- (IBAction)pause:(id)sender {
-    [self.videoController pause];
-    NSLog(@"pause");
 }
 
 
@@ -152,7 +141,7 @@ VideoEndOverlayViewControllerDelegate>
     // Set ourselves as the ad delegate to be notified of native ad events.
     nativeAd.delegate = self;
     self.videoController = nativeAd.videoController;
-    NSLog(@"customControlsEnabled: %d", [self.videoController customControlsEnabled]);
+    
     // Populate the native ad view with the native ad assets.
     // The headline is guaranteed to be present in every native ad.
     ((UILabel *)nativeAdView.headlineView).text = nativeAd.headline;
@@ -231,7 +220,9 @@ VideoEndOverlayViewControllerDelegate>
 }
 
 - (void)videoControllerDidPlayVideo:(GADVideoController *)videoController {
-    
+    if (self.pageViewController.percentage != 0.0) {
+        [self.videoController stop];
+    }
 }
 
 #pragma VideoEndOverlayViewControllerDelegate

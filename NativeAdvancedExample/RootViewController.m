@@ -9,9 +9,10 @@
 #import "RootViewController.h"
 #import "PageContentViewController.h"
 #import "AdViewController.h"
+#import "TikTokPageViewController.h"
 
 @interface RootViewController ()  <UIPageViewControllerDataSource>
-@property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) TikTokPageViewController *pageViewController;
 @property (strong, nonatomic) NSMutableArray *viewArray;
 @end
 
@@ -22,12 +23,15 @@
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
+    NSMutableArray *adViewControllers = [[NSMutableArray alloc] init];
     _viewArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
         if (i % 3 == 0) {
             AdViewController *adViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdViewController"];
             adViewController.index = i;
+            adViewController.pageViewController = self.pageViewController;
             [_viewArray addObject:adViewController];
+            [adViewControllers addObject:adViewController];
         } else {
             PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
             pageContentViewController.index = i;
@@ -38,7 +42,7 @@
     PageContentViewController *startingViewController = _viewArray[0];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    
+    self.pageViewController.adViewControllers = adViewControllers;
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];

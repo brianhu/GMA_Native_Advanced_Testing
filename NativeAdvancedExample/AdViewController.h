@@ -15,6 +15,7 @@
 @import GoogleMobileAds;
 @import UIKit;
 #import "PageContentViewController.h"
+#import "TikTokPageViewController.h"
 
 @interface AdViewController : PageContentViewController
 
@@ -35,4 +36,6 @@
 
 /// Refreshes the ad.
 - (IBAction)refreshAd:(id)sender;
+@property(nonatomic, strong) GADVideoController *videoController;
+@property(nonatomic, weak) TikTokPageViewController *pageViewController;
 @end
